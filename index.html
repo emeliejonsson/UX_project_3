@@ -5,26 +5,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Svenssons Hantverk AB</title>
+    <link rel="stylesheet" href="style.css">
     <script type="importmap">
         {
             "imports" : {
                 "vue" : "https://unpkg.com/vue@3.5.28/dist/vue.esm-browser.js"
-            }
+            },
+            "integrity": { "https://unpkg.com/vue@3.5.28/dist/vue.esm-browser.js": "sha384-Q3gg1uvxzo7j5a5zJyKw57OkLMyOhl1sGmQxxn63S3lsr8Ki3ACSKKSvK8zG//7D"
         }
+    }
     </script>
-    <script type="module" src="app.js"></script>
 </head>
 
 <body>
-    <nav>
-        <img src="" alt="Logo">
-    </nav>
+    <div id="app">
 
-    <main>
+        <header id="header">
 
+            <div id="header-right-container">
+                <img src="assets/logo.png" alt="Logo">
 
+                <button id="previous-date-button">&lt;</button>
+                <p id="date">{{ date }}</p>
+                <button id="next-date-button">&gt;</button>
+                <p>Ny bokning</p>
+                <button id="new-booking-button">{{ newBooking }}</button>
+            </div>
 
-    </main>
+            <img src="assets/dotted-vertical-line" alt="Dotted vertical line">
+
+            <div id="header-left-container">
+                <div id="profession-container">
+                    <button class="plumber">Rörmokare</button>
+                    <button class="electrican">Elektriker</button>
+                    <button class="carpenter">Snickare</button>
+                    <button class="painter">Målare</button>
+                    <button class="mason">Murare</button>
+                </div>
+            </div>
+
+        </header>
+
+        <main id="main-content">
+            <div id="first-container">
+                <div class="booking-category-selection">
+                    <button class="name">Namn</button>
+                    <button class="availability">Tillgänglighet</button>
+                    <button class="professioncategory">Yrkeskategori</button>
+                </div>
+
+                <div class="booking-category-selection-filter">
+                    <dropdown id=""></dropdown>
+
+                </div>
+            </div>
+
+            <div class="employee-container">
+                <div class="all-employees" v-for="employee in result" :key="employee.id">
+                    <div id="employee-professions" v-for="profession in employee.professions" :key="profession.id">
+                        <div class="employee-profession">{{ profession }} {{ employee.name }}</div>
+                    </div>
+                </div>
+
+        </main>
+    </div>
+    <script type="module" src="app.js"></script>
 </body>
 
 </html>

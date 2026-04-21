@@ -1,0 +1,30 @@
+body {
+    width: 1440px;
+    height: 1024px;
+}
+
+/* ----------------------- HEADER CONTAINER ----------------------- */
+
+#header,
+#header-right-container,
+#header-left-container {
+    display: flex;
+    flex-direction: row;
+    align-items: first baseline;
+    gap: 1rem;
+}
+
+#previous-date-button,
+#next-date-button {
+    width: 24px;
+    height: 24px;
+    background-color: white;
+    border: none;
+}
+
+#new-booking-button {
+    width: 40px;
+    height: 40px;
+}
+
+

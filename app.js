@@ -1,14 +1,34 @@
-async function getData() {
+import { createApp, ref, onMounted } from "vue";
+const app = {
+    setup() {
+        const result = ref([]);
+        const error = ref(null);
 
-    const url = "https://yrgo-web-services.netlify.app/bookings";
+        async function getData() {
+            try {
+                const response = await fetch("https://yrgo-web-services.netlify.app/bookings");
 
-    try {
-        const response = await fetch(url);
-        if (!response.ok) {
-            throw new Error(`Response status: ${response.status}`);
-        } const result = await response.json();
-        console.log(result);
-    } catch (error) {
-        console.error(error.message);
-    }
-}
+                if (!response.ok) {
+                    throw new Error(`Status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                result.value = data;
+
+                console.log(data);
+
+            } catch (e) {
+                error.value = e.message;
+                console.error(e);
+            } 
+                
+        }
+
+        onMounted(() => {
+            getData();
+
+        });
+        return { result, error };
+    }   
+};
+createApp(app).mount("#app")
