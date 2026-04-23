@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Svenssons Hantverk AB</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
     <script type="importmap">
         {
             "imports" : {
@@ -63,11 +68,19 @@
             <div class="employee-container">
                 <div class="all-employees" v-for="employee in result" :key="employee.id">
                     <div id="employee-professions" v-for="profession in employee.professions" :key="profession.id">
-                        <div class="employee-profession">{{ profession }} {{ employee.name }}</div>
+                        <div class="profession">{{ profession }}</div>
+                        <div class="employee">{{ employee.name }}</div>
+
+                    </div>
+                    <div class="employee-bookings" v-for="booking in employee.bookings" :key="booking.id">
+                        {{ booking.percentage }}
+                        {{ booking.status }}
                     </div>
                 </div>
-
-        </main>
+            </div>
+    </div>
+    </div>
+    </main>
     </div>
     <script type="module" src="app.js"></script>
 </body>

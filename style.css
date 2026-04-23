@@ -27,4 +27,32 @@ body {
     height: 40px;
 }
 
+.all-employees {
+    display: flex;
+    flex-direction: row;
+    
+}
 
+#employee-professions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid black;
+    height: 56px;
+    width: 294px;
+    font-family: Inter;
+}
+
+.profession {
+    background-color: #1A3A5F;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.employee-bookings {
+    border: 1px solid black;
+    width: 35px;
+    height: 45px;
+    border-radius: 5px;
+}
