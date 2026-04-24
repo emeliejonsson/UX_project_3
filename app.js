@@ -1,4 +1,5 @@
 import { createApp, ref, onMounted } from "vue";
+
 const app = {
     setup() {
         const result = ref([]);
@@ -13,14 +14,15 @@ const app = {
                 }
                 
                 const data = await response.json();
+                console.log("API data: ", data)
                 result.value = data;
 
                 console.log(data);
 
             } catch (e) {
                 error.value = e.message;
-                console.error(e);
-            } 
+                console.error("Get error: ", e);
+            }
                 
         }
 
@@ -31,4 +33,7 @@ const app = {
         return { result, error };
     }   
 };
-createApp(app).mount("#app")
+
+
+            
+createApp(app).mount("#app");

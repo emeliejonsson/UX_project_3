@@ -6,13 +6,29 @@ body {
 /* ----------------------- HEADER CONTAINER ----------------------- */
 
 #header,
-#header-right-container,
 #header-left-container {
     display: flex;
     flex-direction: row;
     align-items: first baseline;
     gap: 1rem;
 }
+
+#header-right-container {
+    display : flex;
+    justify-content: center;
+    align-items: first baseline;
+    gap: 1rem;
+    
+}
+
+#header-right-container p {
+    position: relative;
+    left: 30px;
+
+}
+
+
+
 
 #previous-date-button,
 #next-date-button {
@@ -22,32 +38,164 @@ body {
     border: none;
 }
 
+#dotted-lines{
+     position:relative;
+    left: 130px;
+    top: 18px;
+
+}
+
 #new-booking-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 40px;
     height: 40px;
+    position: relative;
+    left: 120px;
+    top: 5px;
+}
+
+#new-booking-button p {
+    font-size: 30px;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+}
+
+#profession-container {
+    display: flex;
+    gap: 20px;
+    margin-left:175px;
+    
+    
+}
+
+.plumber {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    
+}
+
+.plumber p, .electrician p, 
+.carpenter p, .painter p, .mason p{
+    position:relative;
+    left: 15px;
+}
+
+.electrician {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.carpenter {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.painter {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.mason {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.plumber,
+.electrician,
+.carpenter,
+.painter,
+.mason {
+
+    width: 126px;
+    height: 39px;
+    padding: 4px 4px;
+    border-radius: 10px;
+    background-color: #1A3A5F;
+    color: white;
+    
+    
+}
+
+#profession-container img {
+    width: 24px;
+    height: 24px;
+    margin-left:20px;
+    
+}
+
+#
+/* ----------------------- MAIN CONTAINER ----------------------- */
+
+/* ----------------------- Sorting by name, availability, profession ----------------------- */
+
+#sort-by-name,
+#sort-by-availability,
+#sort-by-profession {
+    font-size: 16px;
+    height: 29px;
+    background-color: #E0E0E0;
+}
+
+#sort-by-name {
+    background-color: #1A3A5F;
+}
+
+/* ----------------------- EMPLOYEE ----------------------- */
+
+#one-employee-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.from {
+    border: 1px solid black;
 }
 
 .all-employees {
     display: flex;
     flex-direction: row;
-    
+
 }
 
-#employee-professions {
+.employee-professions {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     border: 1px solid black;
-    height: 56px;
-    width: 294px;
     font-family: Inter;
 }
 
-.profession {
+.employee-name {
+    border: 1px solid black;
+}
+
+.profession-initials-div {
+    display: flex;
+    background-color: red;
+    padding: 5px;
+}
+
+.profession-initials {
     background-color: #1A3A5F;
     width: 40px;
     height: 40px;
     border-radius: 50%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
 }
 
 .employee-bookings {
@@ -55,4 +203,18 @@ body {
     width: 35px;
     height: 45px;
     border-radius: 5px;
+}
+
+.booking-container {
+    display: flex;
+    flex-direction: row;
+    width: 270px;
+    height: 56px;
+    border: 1px solid black;
+    justify-content: flex-start;
+}
+
+#profession-container {
+    display: flex;
+    gap: 15px;
 }

@@ -20,6 +20,7 @@
         }
     }
     </script>
+    <script type="module" src="app.js"></script>
 </head>
 
 <body>
@@ -34,18 +35,38 @@
                 <p id="date">{{ date }}</p>
                 <button id="next-date-button">&gt;</button>
                 <p>Ny bokning</p>
-                <button id="new-booking-button">{{ newBooking }}</button>
+                <button id="new-booking-button">
+                    <p> + </p>{{ newBooking }}
+                </button>
             </div>
 
+            <div id="dotted-lines">
             <img src="assets/dotted-vertical-line.png" alt="Dotted vertical line">
+        </div>
 
             <div id="header-left-container">
                 <div id="profession-container">
-                    <button class="plumber">Rörmokare</button>
-                    <button class="electrican">Elektriker</button>
-                    <button class="carpenter">Snickare</button>
-                    <button class="painter">Målare</button>
-                    <button class="mason">Murare</button>
+                    <button class="plumber">
+                        <p>Rörmokare</p>
+                        <img src="assets/plumber_icon.png" alt="plumber-img">
+                    </button>
+                    <button class="electrician">
+                        <p> Elektriker</p>
+                        <img src="assets/electrician_icon.png" alt="electrician_icon">
+                    </button>
+                    <button class="carpenter">
+                        <p> Snickare</p>
+                        <img src="assets/carpenter_icon.png" alt="carpenter_icon">
+                    </button>
+                    <button class=" painter">
+                        <p> Målare </p>
+                        <img src="assets/painter.png" alt="painter_icon">
+
+                    </button>
+                    <button class="mason">
+                        <p> Murare </p>
+                        <img src="assets/mason_icon.png" alt="mason_icon">
+                    </button>
                 </div>
             </div>
 
@@ -54,35 +75,71 @@
         <main id="main-content">
             <div id="first-container">
                 <div class="booking-category-selection">
-                    <button class="name">Namn</button>
-                    <button class="availability">Tillgänglighet</button>
-                    <button class="professioncategory">Yrkeskategori</button>
+                    <button id="sort-by-name">Namn</button>
+                    <button id="sort-by-availability">Tillgänglighet</button>
+                    <button id="sort-by-profession">Yrkeskategori</button>
                 </div>
 
                 <div class="booking-category-selection-filter">
-                    <dropdown id=""></dropdown>
+                    <!-- FIX THE IMG HERE -->
+                    <p>Namn</p>
+                </div>
 
+                <div id="main-employee-container">
+                    <div id="one-employee-container" v-for="employee in result" :key="employee.id">
+
+
+                        <div class="employee-professions" v-for="profession in employee.professions"
+                            :key="profession.id">
+
+                            <!-- Carpenter, Painter, Electrician, Mason, Plumber -->
+                            <div class="profession-initials-div" v-if="profession === 'Carpenter'">
+                                <p class="profession-initials">P</p>
+                            </div>
+                            <div class="profession-initials-div" v-if="profession === 'Plumber'">
+                                <p class="profession-initials">R</p>
+                            </div>
+                            <div class="profession-initials-div" v-if="profession === 'Painter'">
+                                <p class="profession-initials">Må</p>
+                            </div>
+                            <div class="profession-initials-div" v-if="profession === 'Electrician'">
+                                <p class="profession-initials">E</p>
+                            </div>
+                            <div class="profession-initials-div" v-if="profession === 'Mason'">
+                                <p class="profession-initials">Mu</p>
+                            </div>
+
+                            <!-- <div class="profession">{{ profession }}</div> -->
+                        </div>
+
+                        <div class="employee-name">
+                            <div class="name">{{ employee.name }}</div>
+                        </div>
+
+
+                        <div class="date" v-for="date in employee.bookings" :key="date.id">
+                            <div class="from"> {{ date.from }} - {{ date.to }}</div>
+                        </div>
+
+
+                        <div class="booking-container">
+                            <div class="employee-bookings" v-for="booking in employee.bookings" :key="booking.id">
+                                <div class="percentage">{{ booking.percentage }}</div>
+                                <div class="status">{{ booking.status }}</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="employee-container">
-                <div class="all-employees" v-for="employee in result" :key="employee.id">
-                    <div id="employee-professions" v-for="profession in employee.professions" :key="profession.id">
-                        <div class="profession">{{ profession }}</div>
-                        <div class="employee">{{ employee.name }}</div>
+            <!-- TEST DIV -->
+            <div class="test-div">
 
-                    </div>
-                    <div class="employee-bookings" v-for="booking in employee.bookings" :key="booking.id">
-                        {{ booking.percentage }}
-                        {{ booking.status }}
-                    </div>
-                </div>
+
             </div>
+
+        </main>
     </div>
-    </div>
-    </main>
-    </div>
-    <script type="module" src="app.js"></script>
 </body>
 
 </html>
